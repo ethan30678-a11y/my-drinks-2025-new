@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 手搖年度回顧</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+        }
+        .slide {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            padding: 20px;
+        }
+        .slide.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide:nth-child(1) { background: linear-gradient(45deg, #ff6b6b, #feca57); color: #000; }
+        .slide:nth-child(2) { background: linear-gradient(45deg, #54a0ff, #5f27cd); }
+        .slide:nth-child(3) { background: linear-gradient(45deg, #48dbfb, #1dd1a1); color: #000; }
+        .slide:nth-child(4) { background: linear-gradient(45deg, #ff9ff3, #f368e0); }
+        .slide:nth-child(5) { background: #000; border: 2px solid #1db954; color: #1db954; }
+
+        h1 { font-size: 3em; margin-bottom: 0.2em; font-weight: 900; }
+        h2 { font-size: 1.8em; margin-bottom: 0.5em; }
+        .stat-big { font-size: 4em; font-weight: bold; margin: 10px 0; }
+        .stat-label { font-size: 1.2em; text-transform: uppercase; letter-spacing: 2px; }
+        .highlight { font-weight: bold; color: #fff; background: rgba(0,0,0,0.2); padding: 0 5px; border-radius: 4px; }
+        .slide:nth-child(1) .highlight { color: #000; background: rgba(255,255,255,0.4); }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: 200px;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .bar {
+            width: 40px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 5px 5px 0 0;
+            animation: grow 1.5s ease-out forwards;
+            position: relative;
+        }
+        .bar span {
+            position: absolute;
+            bottom: -25px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        @keyframes grow { from { height: 0; } }
+        @keyframes float { 
+            0% { transform: translateY(0px); } 
+            50% { transform: translateY(-10px); } 
+            100% { transform: translateY(0px); } 
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+
+        .progress-bar {
+            width: 80%;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #fff;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Intro -->
+        <div class="slide visible">
+            <h2 class="floating">2025 年度回顧</h2>
+            <h1>手搖成癮</h1>
+            <p>這一年，你真的很渴。</p>
+            <div class="stat-big">545 杯</div>
+            <div class="stat-label">年度總杯數</div>
+        </div>
+
+        <!-- Spend -->
+        <div class="slide">
+            <h2>你的荷包君...</h2>
+            <div class="stat-big">$33,700</div>
+            <div class="stat-label">總花費</div>
+            <p style="margin-top: 20px">平均每天貢獻 <span class="highlight">$92</span> 給飲料店</p>
+            <p>你的最高紀錄：<br>5月9日，單日狂喝 <span class="highlight">5 杯</span></p>
+        </div>
+
+        <!-- Top Store -->
+        <div class="slide">
+            <h2>你的本命店家</h2>
+            <h1 class="floating">得正</h1>
+            <div class="stat-big">#1</div>
+            <p>你光顧了 <span class="highlight">240 次</span></p>
+            <p>貢獻了 $14,095 (佔比 42%)</p>
+            <div class="progress-bar"><div class="progress-fill" style="width: 42%"></div></div>
+            <p>你是他們的股東嗎？</p>
+        </div>
+
+        <!-- Top Item -->
+        <div class="slide">
+            <h2>年度主打歌</h2>
+            <div class="stat-big" style="font-size: 2.5em">雙柚金烏龍</div>
+            <p style="margin-top: 20px">播放次數...呃，飲用次數</p>
+            <div class="stat-big">207 杯</div>
+            <p>這杯飲料佔了你整年 38% 的流量</p>
+        </div>
+
+        <!-- Summary -->
+        <div class="slide">
+            <h2>你的飲料人格</h2>
+            <h1 style="color: #1db954">果茶大亨</h1>
+            <p>63% 的選擇是水果系列</p>
+            <div class="bar-chart">
+                <div class="bar" style="height: 63%; background: #1db954"><span>果茶</span></div>
+                <div class="bar" style="height: 28%; background: #1ed760"><span>奶茶</span></div>
+                <div class="bar" style="height: 9%; background: #b3b3b3"><span>其他</span></div>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9em; color: #b3b3b3">generated by 2025 AI Wrapped</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Trigger progress bars if inside
+                    const progressBar = entry.target.querySelector('.progress-fill');
+                    if (progressBar) {
+                        progressBar.style.width = progressBar.style.width || progressBar.getAttribute('style').match(/width:\s*(\d+%)/)[1];
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.slide').forEach((slide) => {
+            observer.observe(slide);
+        });
+    </script>
+</body>
+</html>
